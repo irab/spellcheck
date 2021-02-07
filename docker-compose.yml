@@ -1,0 +1,7 @@
+services:
+  tests: ...
+  lint:
+    image: buildkite/plugin-linter
+    command: ['--id', 'irab/spellcheck']
+    volumes:
+      - ".:/plugin:ro"
