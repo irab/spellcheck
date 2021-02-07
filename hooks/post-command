@@ -10,6 +10,3 @@ COUNT=$(find . -name "$PATTERN" | wc -l)
 echo "Found ${COUNT} files matching ${PATTERN}"
 
 buildkite-agent annotate "Found ${COUNT} files matching ${PATTERN}"
-mkdir tests
-touch tests/post-command.bats
-chmod +x tests/post-command.bats
