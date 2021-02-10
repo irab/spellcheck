@@ -3,7 +3,7 @@ set -euo pipefail
 
 PATTERN="$BUILDKITE_PLUGIN_SPELLCHECK_PATTERN"
 
-echo "--- Checkng files for misspelt words"
+echo "--- Checking files for misspelt words"
 
 WORDS=()
 
