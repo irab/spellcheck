@@ -1,12 +1,17 @@
 #!/bin/bash
 set -euo pipefail
 
-PATTERN="$BUILDKITE_PLUGIN_FILE_COUNTER_PATTERN"
+PATTERN="$BUILDKITE_PLUGIN_SPELLCHECK_PATTERN"
 
-echo "--- :1234: Counting the number of files"
+echo "--- Checkng files for misspelt words"
 
-COUNT=$(find . -name "$PATTERN" | wc -l)
+WORDS=()
 
-echo "Found ${COUNT} files matching ${PATTERN}"
+for i in $(find . -name $PATTERN)
+do
+  WORDS+=$(cat $i |docker run -i starefossen/aspell list)
+done
 
-buildkite-agent annotate "Found ${COUNT} files matching ${PATTERN}"
+echo -e "Found the following misspelt words: ${WORDS}"
+
+buildkite-agent annotate "Found the following misspelt words: ${WORDS}"

@@ -1,6 +1,6 @@
-# File Counter Buildkite Plugin
+# Spellchecker Buildkite Plugin
 
-Annotates the build with a file count.
+Annotates the build with words that are misspelt.
 
 ## Example
 
